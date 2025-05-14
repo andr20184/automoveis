@@ -1,4 +1,4 @@
-package org.ltpo.models.DAO;
+package org.ltpo.DAO;
 
 
 import jakarta.persistence.EntityManager;

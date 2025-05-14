@@ -1,21 +1,24 @@
 package org.ltpo.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
-import java.util.Date;
+
 @Entity
-@Table
-public class Automovel {
+@Table(name = "Automoveis")
+public class Automoveis {
     @Id
     private int id;
     private String placa;
-    private Date ano;
+    private int ano;
     private String cor;
-    private String modelo;
+    @ManyToOne
+    private Modelo modelo;
 
-    public Automovel(int id, String placa, Date ano, String cor, String modelo) {
+    public Automoveis(){
+
+    }
+
+    public Automoveis(int id, String placa, int ano, String cor, Modelo modelo) {
         this.id = id;
         this.placa = placa;
         this.ano = ano;
@@ -39,7 +42,7 @@ public class Automovel {
         this.placa = placa;
     }
 
-    public Date getAno() {
+    public int getAno() {
         return ano;
     }
 
@@ -51,15 +54,15 @@ public class Automovel {
         this.cor = cor;
     }
 
-    public void setAno(Date ano) {
+    public void setAno(int ano) {
         this.ano = ano;
     }
 
-    public String getModelo() {
+    public Modelo getModelo() {
         return modelo;
     }
 
-    public void setModelo(String modelo) {
+    public void setModelo(Modelo modelo) {
         this.modelo = modelo;
     }
 }
